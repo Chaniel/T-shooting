@@ -1,5 +1,5 @@
 #Spying on Apache and PHP with Strace
-
+#https://www.youtube.com/watch?v=eF-p--AH37E
 # strace, watch system calls, open close read write.
 
 #
@@ -23,3 +23,9 @@ tcp        0      0 127.0.0.1:5000              127.0.0.1:51005             ESTA
 tcp        0      0 127.0.0.1:51005             127.0.0.1:5000              ESTABLISHED 27443/telnet
 
 
+# stract -r ， timestamp  -c count time
+
+# strace -o /tmp/output -f -r -s 4096 -p 16742
+
+
+#
