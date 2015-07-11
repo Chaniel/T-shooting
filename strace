@@ -1,0 +1,25 @@
+#Spying on Apache and PHP with Strace
+
+# strace, watch system calls, open close read write.
+
+#
+telnet python应用
+
+
+# 查看telnet进程打开的文件
+lsof -p `pidof telnet`
+
+# sudo su -
+
+
+#
+[root@ctos ~]# netstat -antp | grep python
+tcp        0      0 0.0.0.0:5000                0.0.0.0:*                   LISTEN      27093/python        
+tcp        0      0 127.0.0.1:5000              127.0.0.1:51005             ESTABLISHED 27093/python        
+[root@ctos ~]# netstat -antp | grep telnet
+tcp        0      0 127.0.0.1:51005             127.0.0.1:5000              ESTABLISHED 27443/telnet        
+[root@ctos ~]# netstat -antp | grep  51005
+tcp        0      0 127.0.0.1:5000              127.0.0.1:51005             ESTABLISHED 27093/python        
+tcp        0      0 127.0.0.1:51005             127.0.0.1:5000              ESTABLISHED 27443/telnet
+
+
